@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Cell } from '../models/Cell';
+import "./CellComponent.css";
 
 interface CellProps{
     cell: Cell;
@@ -12,7 +13,7 @@ const CellComponent:FC<CellProps> = ({cell, selected, click}) => {
         <div 
             className={['cell', cell.color, selected ? "selected" : ''].join(' ')}
             onClick={() => click(cell)}
-            style={{background: cell.available && cell.piece ? 'yellow' : ''}} //TODO ЗАМЕНИТЬ INLINE СТИЛЬ
+            //style={{background: cell.available && cell.piece ? 'yellow' : ''}} //TODO ЗАМЕНИТЬ INLINE СТИЛЬ !!сделано
         >
             {cell.available && !cell.piece && <div className={"available"}/>}
             {cell.piece?.logo && <img src={cell.piece.logo} alt=''/>}
